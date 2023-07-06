@@ -56,19 +56,11 @@ class Knight {
   }
 }
 
-const knight = new Knight(1, 1);
-console.log(knight.square);
-const possibleMoves = knight.getPossibleMoves();
-possibleMoves.forEach(move => {
-  console.log(move.square);
-})
+// const knight = new Knight(2, 7);
+// console.log(knight.getPossibleMoves());
 
 function isInsideBoard(x, y){
-  try {
-    return Boolean(board[x][y]);
-  } catch (e){
-    return false;
-  }
+  return (x >= 0 && x <= 7 && y >= 0 && y <= 7)
 }
 
 function getChessBoard(){
@@ -85,3 +77,26 @@ function getChessBoard(){
   }
   return chessBoard;
 }
+
+function knightTravails(initial, end){
+  let counter = 0;
+  const queu = [];
+  queu.push(new Knight(...initial));
+  while ((queu[0].row !== end[0]) || (queu[0].col !== end[1])){
+    const currentKnight = queu.shift();
+    const possibleMoves = currentKnight.getPossibleMoves();
+    possibleMoves.forEach(possibleMove => possibleMove.parent = currentKnight);
+    queu.push(...possibleMoves);
+    counter ++;
+  }
+  let resultKnight = queu.shift();
+  const result = [];
+  while(resultKnight.parent){
+    result.push([resultKnight.row, resultKnight.col]);
+    resultKnight = resultKnight.parent
+  }
+  result.push([resultKnight.row, resultKnight.col])
+  return result.reverse()
+}
+
+console.log(knightTravails([0,0],[7,7]));
