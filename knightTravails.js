@@ -1,4 +1,5 @@
 export const board = getChessBoard();
+console.log(board[0][6]);
 class Knight {
   constructor (row, col) {
     this.row = row;
@@ -78,7 +79,7 @@ function getChessBoard(){
   return chessBoard;
 }
 
-function knightTravails(initial, end){
+export function knightTravails(initial, end){
   let counter = 0;
   const queu = [];
   queu.push(new Knight(...initial));
@@ -98,3 +99,5 @@ function knightTravails(initial, end){
   result.push([resultKnight.row, resultKnight.col])
   return result.reverse()
 }
+
+console.log(knightTravails([4,4], [5,  7]));

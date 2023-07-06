@@ -11,7 +11,20 @@
   <script src="modules/drawBoard.js" type="module"></script>
   <script src="main.js" type="module"></script>
   <div id="App">
+    <section>
+      <p id="instruction">Select initial square</p>
+    </section>
     <section id="board"></section>
+    <section>
+      <fieldset>
+        <legend>Information</legend>
+        <p>Initial square: <span id="initial-square"></span></p>
+        <p>Final square: <span id="final-square"></span></p>
+        <p>Path: <span id="path"></span></p>
+        <p>Number of moves: <span id="num-moves"></span></p>
+      </fieldset>
+    </section>
+    <button id="restart-btn">Restart</button>
   </div>
 </body>
 </html>

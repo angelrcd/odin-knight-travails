@@ -35,6 +35,11 @@
 
 .square {
   background-color: #B5915F;
+  color: white;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .square:nth-child(2n){
@@ -55,4 +60,12 @@
 .legend-hover {
   filter: brightness(0.8);
   font-weight: 600;
+}
+
+.initial {
+  border: 2px solid blue;
+}
+
+.final {
+  border: 2px solid green;
 }
