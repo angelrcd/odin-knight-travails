@@ -30,7 +30,7 @@ allSquares.forEach(square => {
       knightTravailsResult = knightTravails(initialIndex, finalIndex)
 
       drawPathOnBoard(knightTravailsResult)
-      pathDisplay.textContent = (knightTravailsResult.map(index => board[index[0]][index[1]])).join(", ");
+      pathDisplay.textContent = (knightTravailsResult.map(index => board[index[0]][index[1]])).join(" → ");
       numberMovesDisplay.textContent = knightTravailsResult.length - 1;
     }
   })
@@ -88,7 +88,9 @@ function drawPathOnBoard(knightTravailsResult){
   for (let pathIndex of knightTravailsResult){
     const value = board[pathIndex[0]][pathIndex[1]];
     const square = document.querySelector(`.square[data-value=${value}]`)
-    square.textContent = moveCount;
+    if (moveCount !== 0){
+      square.textContent = moveCount;
+    }
     moveCount++;
   }
 }

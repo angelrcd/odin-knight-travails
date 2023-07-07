@@ -23,20 +23,34 @@
 .board-row:nth-child(even) .square:nth-child(odd){
   background: #441A03;
 } */
+body {
+  background-color: #F1F5F9;
+}
+
+#App {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+#information {
+  flex-grow: 1;
+}
 
 
 #board {
   display: grid;
   grid-template-columns: 0.5fr repeat(8, 1fr);
   grid-template-rows: repeat(8, 1fr) 0.5fr;
-  width: 600px;
-  height: 600px;
+  width: clamp(330px, 40vw, 500px);
+  height: clamp(330px, 40vw, 500px);
 }
 
 .square {
   background-color: #B5915F;
+  position: relative;
   color: white;
-  font-size: 2rem;
+  font-size: clamp(1rem, 2.5vw  , 2rem);;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,8 +60,8 @@
   background-color: #441A03;
 }
 
-.square:hover {
-  border: 2px solid red;
+.square:hover:not(.final,.initial) {
+  filter: brightness(0.7);
 }
 
 .legend {
@@ -62,10 +76,26 @@
   font-weight: 600;
 }
 
-.initial {
-  border: 2px solid blue;
+.initial::after {
+  content: "";
+  background-image: url(./public/knight.svg);
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: +1;
 }
 
-.final {
-  border: 2px solid green;
+.final::before {
+  content: "";
+  padding: 5px;
+  position: absolute;
+  top: -5%;
+  left: 95%;
+  background: green;
+  border-radius: 100%;
+  z-index: +1;
 }

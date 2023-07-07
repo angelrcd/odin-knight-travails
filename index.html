@@ -5,26 +5,25 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Knight Travails</title>
+  <link rel="shortcut icon" href="public/favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <script src="modules/drawBoard.js" type="module"></script>
   <script src="main.js" type="module"></script>
   <div id="App">
-    <section>
-      <p id="instruction">Select initial square</p>
-    </section>
     <section id="board"></section>
-    <section>
+    <section id="information">
       <fieldset>
         <legend>Information</legend>
+        <p>Select initial square and final square to see shortest path</p>
         <p>Initial square: <span id="initial-square"></span></p>
         <p>Final square: <span id="final-square"></span></p>
         <p>Path: <span id="path"></span></p>
         <p>Number of moves: <span id="num-moves"></span></p>
       </fieldset>
+      <button id="restart-btn">Restart</button>
     </section>
-    <button id="restart-btn">Restart</button>
   </div>
 </body>
 </html>
